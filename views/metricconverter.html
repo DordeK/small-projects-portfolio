@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+        <style media="screen">
+
+                header{
+                 text-align: center;
+                 font-family: Copperplate;
+                 font-size: 30px
+              }
+
+              body{
+                background-color: #AC3939
+              }
+
+              #result{
+                font-size: 40px
+              }
+
+              #jsonResult{
+                font-size: 30px;
+                color: grey
+              }
+
+        </style>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Welcome to HyperDev!</title>
+    <meta name="description" content="A cool thing made with HyperDev">
+    <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../converter-css/style.css">
+  </head>
+
+  <header>
+    <h1>
+      Metric Converter
+    </h1>
+  </header>
+
+  <body>
+    <div id='testui' style='text-align: center'>
+      <br><br><b>
+      <h1 style='font-size: 24px; font-family: Copperplate'>converting units:</h1>
+      <i style="font-size:24px">mi  ---  km<br>kg --- lbs<br>l ----- gal</i>
+       <br><br>
+       <h4 style='font-family: Copperplate; font-size: 36px'>input area</h4>
+
+       <p style="font-size:50px">↓</p>
+
+      <form id="convertForm" class="">
+        <input type="text" id="convertField" name="input" placeholder="npr. 3.1mi" style="width: 500px; height:40px; text-align: center; font-size: 25px"><br><br><br>
+        <button id="convert"  type="input" class="btn btn-success" style=' width:400px; font-size:20px'>submit</button>
+        <br><br>
+      </form>
+      <p id='result' ></p>
+      <code id='jsonResult'></code>
+    </div>
+   <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script>
+      $(function() {
+        $('#convertForm').submit(function() {
+          event.preventDefault();
+          $.ajax({
+            url: '/api/convert/backend',
+            type: 'get',
+            data: $('#convertForm').serialize(),
+            success: function(data) {
+              $('#result').text(data.string);
+              $('#jsonResult').text(JSON.stringify(data));
+            }
+          });
+        });
+      });
+   </script>
+  </body>
+</html>

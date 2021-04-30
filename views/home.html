@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<style media="screen">
+    img {
+    border-radius: 50%;
+    width: 550px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    } 
+
+    h2{
+      font-weight: 100;
+      font-size: 50px;
+      text-align: center;
+      /* border-bottom: 1px solid black; */
+      padding-bottom: 10px;
+    }
+
+    ul{ 
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      flex-direction: column;
+      height: 80vh;
+      align-items: center;
+    }
+
+
+    ul>li>a{
+      border: 1px solid black;
+      padding: 20px 30px;
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+    }
+
+    
+    ul>li>a:hover{
+      background-color: rgba(0, 0, 0,0.5);
+      color: white;
+    }
+
+
+    ul>li{
+      list-style: none;
+    }
+    hr{
+      color: grey;
+      width: 80%;
+      margin: auto;
+    }
+
+
+</style>
+<script>
+//   setTimeout(function(){
+//    window.location.reload(1);
+// }, 1000);
+</script>
+  <head>
+    <title>Dorde-small projects portfolio</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Dorde's small projects portfolio</h2>
+      <hr>
+        <ul>
+          <li><a href="/api/shorturl/new">Url shortner </a></li>
+          <li><a href="/api/exercise/add">Exercise Tracker</a></li>
+          <li><a href="/api/filemetadata">File Metadata Microservice</a></li>
+          <li><a href="/api/convert">Metric Converter</a></li>
+          <li><a href="/drummachine">Drum machine</a></li>
+          <li><a href="/randomquotemachine">Random quote machine</a></li>
+          <li><a href="/markdownpreviever">Markdown Previever</a></li>
+        </ul>
+    </div>
+  </body>
+</html>
