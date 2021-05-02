@@ -11,6 +11,7 @@ let bodyParser = require('body-parser')
 let multer = require('multer')
 var apiRoutes         = require('./routes/api.js');
 let path = require('path')
+const hostname = '0.0.0.0'
 
 require('dotenv').config()
 
@@ -287,6 +288,6 @@ app.route('/api/convert')
 apiRoutes(app);
 
 // listen for requests :)
-var listener = app.listen(port, function () {
+var listener = app.listen(port, hostname,  function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
